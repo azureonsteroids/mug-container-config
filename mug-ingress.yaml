@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mug-ingress
+  namespace: mug
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: mug-controller
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mug-backend-service
+          servicePort: 80

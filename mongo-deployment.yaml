@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+ name: mug-mongo
+ namespace: mug
+spec:
+ template:
+  metadata:
+    labels:
+      role: mongo
+  spec:
+    containers:
+    - name: mongo
+      image: mongo
+      command:
+        - mongod
+        - "--bind_ip" # Add these two 
+        - 0.0.0.0     # lines...!!
+      volumeMounts:
+        - name: mongo-storage
+          mountPath: /data/db
+      ports:
+      - containerPort: 27017
+    volumes:
+    - name: mongo-storage
+      azureFile:
+        secretName: mug-storage-secret
+        shareName: mugfsmongo
+        readOnly: false
