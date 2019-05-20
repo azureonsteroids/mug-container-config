@@ -1,0 +1,39 @@
+### Global values
+
+global:
+  env: default
+  acr: mugacr.azurecr.io/
+
+### specific values
+
+mug-backend:
+  name: mug-backend
+  image: mug-backend
+  service:
+    port: 8001
+
+mug-producer:
+  name: mug-producer
+  image: mug-producer
+  service:
+    port: 8002
+  busNeeded: true
+
+mug-goody-consumer:
+  name: mug-goody-consumer
+  image: mug-goody-consumer
+  busNeeded: true
+
+mug-event-consumer:
+  name: mug-event-consumer
+  image: mug-event-consumer
+  busNeeded: true
+
+mug-frontend:
+  image: mug-frontend
+
+
+### MUST BE OVERRIDED:
+#
+# global.env  
+#

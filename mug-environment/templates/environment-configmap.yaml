@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: environment-cm
+  namespace: mug-{{ .Values.env }}
+data:
+  mongo.url: mug-mongo-service.mug-{{ .Values.env }}
+  bus.string: {{ .Values.bus.string }}
+  base.url: http://muginclermont.trafficmanager.net/ # http://muginclermont.trafficmanager.net/{{ .Values.env }} TODO TERRAFORM

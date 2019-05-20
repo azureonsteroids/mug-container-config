@@ -2,7 +2,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
  name: mug-mongo
- namespace: mug
+ namespace: mug-{{ .Values.env }}
 spec:
  template:
   metadata:
@@ -25,5 +25,5 @@ spec:
     - name: mongo-storage
       azureFile:
         secretName: mug-storage-secret
-        shareName: mugfsmongo
+        shareName: mugfsmongo # mugfsmongo-{{ .Values.env }}  TODO TERRAFORM
         readOnly: false

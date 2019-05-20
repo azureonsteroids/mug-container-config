@@ -1,0 +1,22 @@
+dependencies:
+
+  - name: mug-generic
+    version: 0.1.0
+    alias: mug-backend
+  
+  - name: mug-generic
+    version: 0.1.0
+    alias: mug-producer
+
+  - name: mug-generic
+    version: 0.1.0
+    alias: mug-goody-consumer
+  
+  - name: mug-generic
+    version: 0.1.0
+    alias: mug-event-consumer
+
+  - name: mug-frontend
+    version: 0.1.0
+    alias: mug-frontend
+  

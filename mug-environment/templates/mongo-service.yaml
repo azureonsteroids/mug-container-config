@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mug-mongo-service
-  namespace: mug
+  namespace: mug-{{ .Values.env }}
 spec:
   selector:
     role: mongo

@@ -1,29 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata: 
-  name: mug-producer
-  namespace: mug
+  name: {{ .Values.name }}
+  namespace: mug-{{ .Values.global.env }}
 spec:  
   selector:
     matchLabels:
-      app: mug-producer
+      app: {{ .Values.name }}
   template:
     metadata: 
       labels:
-        app: mug-producer
+        app: {{ .Values.name }}
     spec: 
       containers: 
       - name: app
-        image: mugacr.azurecr.io/mug-producer
+        image: {{ .Values.global.acr }}{{ .Values.image }}
         env: 
         - name: MONGO_URL
           valueFrom:
             configMapKeyRef:
               name: environment-cm
               key: mongo.url
+        {{ if .Values.busNeeded }}
         - name: BUS_CONNECTION_STRING
           valueFrom:
             configMapKeyRef:
               name: environment-cm
               key: bus.string
+        {{ end }}
+
+
 

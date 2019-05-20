@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata: 
   name: mug-frontend
-  namespace: mug
+  namespace: mug-{{ .Values.global.env }}
 spec:  
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: app
-        image: mugacr.azurecr.io/mug-reservation-frontend
+        image: {{ .Values.global.acr}}{{ .Values.image }}
         env:
         - name: BASE_URL
           valueFrom:
