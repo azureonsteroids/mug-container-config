@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: mug-frontend
+  namespace: mug
+spec:  
+  selector:
+    matchLabels:
+      app: mug-frontend
+  template:
+    metadata: 
+      labels:
+        app: mug-frontend
+    spec: 
+      containers: 
+      - name: app
+        image: mugacr.azurecr.io/mug-reservation-frontend
+        env:
+        - name: BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: environment-cm
+              key: base.url

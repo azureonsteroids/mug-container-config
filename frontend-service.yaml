@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mug-frontend-service
+  namespace: mug
+spec:
+  selector:
+    app: mug-frontend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

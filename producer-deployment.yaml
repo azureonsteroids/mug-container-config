@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata: 
-  name: mug-backend
+  name: mug-producer
   namespace: mug
 spec:  
   selector:
     matchLabels:
-      app: mug-backend
+      app: mug-producer
   template:
     metadata: 
       labels:
-        app: mug-backend
+        app: mug-producer
     spec: 
       containers: 
       - name: app
-        image: mugacr.azurecr.io/mug-reservation-backend
+        image: mugacr.azurecr.io/mug-producer
         env: 
         - name: MONGO_URL
           valueFrom:

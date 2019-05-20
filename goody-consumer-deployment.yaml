@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata: 
-  name: mug-backend
+  name: mug-goody-consumer
   namespace: mug
 spec:  
   selector:
     matchLabels:
-      app: mug-backend
+      app: mug-goody-consumer
   template:
     metadata: 
       labels:
-        app: mug-backend
+        app: mug-goody-consumer
     spec: 
       containers: 
       - name: app
-        image: mugacr.azurecr.io/mug-reservation-backend
+        image: mugacr.azurecr.io/mug-goody-consumer
         env: 
         - name: MONGO_URL
           valueFrom:
@@ -26,4 +26,3 @@ spec:
             configMapKeyRef:
               name: environment-cm
               key: bus.string
-
