@@ -2,8 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: environment-cm
-  namespace: mug
+  namespace: mug-dev
 data:
-  mongo.url: mug-mongo-service.mug
-  bus.string: Endpoint=sb://mug-servicebus-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=pmErLr7cWvkhuRMK0zsLtvuB4foHkeQ0qQh5t+c90+M=
+  mongo.url: mug-mongo-service.mug-dev
   base.url: http://muginclermont.trafficmanager.net

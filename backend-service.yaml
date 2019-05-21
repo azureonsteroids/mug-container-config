@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mug-backend-service
-  namespace: mug
+  namespace: mug-dev
 spec:
   selector:
     app: mug-backend
