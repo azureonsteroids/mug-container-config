@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: environment-cm
-  namespace: mug-dev
+  namespace: mug-prd
 data:
-  mongo.url: mug-mongo-service.mug-dev
+  mongo.url: mug-mongo-service.mug-prd
   base.url: http://muginclermont.trafficmanager.net

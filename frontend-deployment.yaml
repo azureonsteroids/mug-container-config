@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata: 
   name: mug-frontend
-  namespace: mug-dev
+  namespace: mug-prd
 spec:  
   selector:
     matchLabels:

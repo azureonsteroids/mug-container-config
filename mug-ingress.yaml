@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: mug-ingress-front
-  namespace: mug-dev
+  namespace: mug-prd
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: mug-prd-controller
@@ -23,7 +23,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: mug-ingress-back
-  namespace: mug-dev
+  namespace: mug-prd
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     kubernetes.io/ingress.class: mug-prd-controller
