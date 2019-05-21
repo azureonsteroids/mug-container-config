@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata: 
   name: mug-frontend
-  namespace: mug-{{ .Values.global.env }}
+  namespace: mug-prd
 spec:  
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: app
-        image: {{ .Values.global.acr}}{{ .Values.image }}:{{ .Values.global.tag }}
+        image: mugacr.azurecr.io/mug-frontend:1.0.0
         imagePullPolicy: Always
         env:
         - name: BASE_URL
