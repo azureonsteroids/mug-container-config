@@ -36,4 +36,5 @@ mug-frontend:
 ### MUST BE OVERRIDED:
 #
 # global.env  
+# global.tag
 #

@@ -14,7 +14,8 @@ spec:
     spec: 
       containers: 
       - name: app
-        image: {{ .Values.global.acr}}{{ .Values.image }}
+        image: {{ .Values.global.acr}}{{ .Values.image }}:{{ .Values.global.tag }}
+        imagePullPolicy: Always
         env:
         - name: BASE_URL
           valueFrom:

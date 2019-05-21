@@ -1,7 +1,10 @@
 env: default
-
+subpath: ""
 
 # MUST BE OVERRIDE :
 # - bus.string
-# -
+# - env
+#
+# OPTIONAL :
+# - subpath
 #

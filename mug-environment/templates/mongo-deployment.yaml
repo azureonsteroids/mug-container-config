@@ -14,8 +14,8 @@ spec:
       image: mongo
       command:
         - mongod
-        - "--bind_ip" # Add these two 
-        - 0.0.0.0     # lines...!!
+        - "--bind_ip" 
+        - 0.0.0.0     
       volumeMounts:
         - name: mongo-storage
           mountPath: /data/db
@@ -25,5 +25,5 @@ spec:
     - name: mongo-storage
       azureFile:
         secretName: mug-storage-secret
-        shareName: mugfsmongo # mugfsmongo-{{ .Values.env }}  TODO TERRAFORM
+        shareName: mugfsmongo-{{ .Values.env }}  
         readOnly: false

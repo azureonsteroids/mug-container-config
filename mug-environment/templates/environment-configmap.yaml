@@ -6,4 +6,4 @@ metadata:
 data:
   mongo.url: mug-mongo-service.mug-{{ .Values.env }}
   bus.string: {{ .Values.bus.string }}
-  base.url: http://muginclermont.trafficmanager.net/ # http://muginclermont.trafficmanager.net/{{ .Values.env }} TODO TERRAFORM
+  base.url: http://{{ .Values.subpath }}muginclermont.trafficmanager.net
