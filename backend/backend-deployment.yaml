@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: DEPLOYMENT_NAME
+  namespace: NAMESPACE 
+spec:  
+  selector:
+    matchLabels:
+      app: SELECTOR_MATCH_LABEL 
+  template:
+    metadata: 
+      labels:
+        app: LABEL_APP 
+    spec: 
+      containers: 
+      - name: app
+        image: IMAGE_REPO
+        imagePullPolicy: Always
+        env: 
+        - name: ENV_VAR
+          value: VALUE

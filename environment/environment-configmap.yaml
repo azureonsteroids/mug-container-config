@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: CONFIG_MAP_NAME
+  namespace: NAMESPACE
+data:
+  KEY: VALUE

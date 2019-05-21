@@ -1,11 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: mug-ingress-front
-  namespace: mug-prd
+  name: INGRESS_NAME 
+  namespace: NAMESPACE 
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: mug-prd-controller
+    kubernetes.io/ingress.class: INGRESS_CONTROLLER_NAME 
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
@@ -14,7 +14,7 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: mug-frontend-service
+          serviceName: POINTED_SERVICE_NAME
           servicePort: 80
 
 ---
@@ -22,22 +22,18 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: mug-ingress-back
-  namespace: mug-prd
+  name: INGRESS_NAME 
+  namespace: NAMESPACE 
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    kubernetes.io/ingress.class: mug-prd-controller
+    kubernetes.io/ingress.class: INGRESS_CONTROLLER_NAME 
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
   - http:
       paths:
-      - path: /back/?(.*)
+      - path: /SERVICE_SUB_PATH/?(.*) 
         backend:
-          serviceName: mug-backend-service
-          servicePort: 80
-      - path: /producer/?(.*)
-        backend:
-          serviceName: mug-producer-service
+          serviceName: POINTED_SERVICE_NAME 
           servicePort: 80
